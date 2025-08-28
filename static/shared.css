@@ -1,0 +1,21 @@
+:root {
+  --rose: #D2738A;
+  --sand: #C1B492;
+  --black:  #000000;
+}
+
+body {
+    font-family: "Jetbrains Mono";
+    background-color: var(--black);
+    color: var(--rose);
+}
+
+h1 {
+    color: var(--rose);
+    font-size: 4em;
+}
+
+h2 {
+    color: var(--sand);
+    font-size: 2em;
+}
