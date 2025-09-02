@@ -9,7 +9,7 @@
 	<link rel="icon" href={favicon} />
 	<link href='https://fonts.googleapis.com/css?family=JetBrains Mono' rel='stylesheet'>
 
-	<meta property="og:title" content="vitrescent" />
+	<meta property="og:title" content="ray's site" />
 	<meta property="og:description" content="did unc make an embed?!??!?" />
 	<meta property="og:image" content="https://vitrescent.vercel.app/_app/immutable/assets/final_fantasy_recolor_dark.CIlg1u1L.png" />
 	<meta property="og:url" content="https://vitrescent.vercel.app" />
