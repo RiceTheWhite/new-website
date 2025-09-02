@@ -14,6 +14,12 @@
 	<meta property="og:image" content="https://vitrescent.vercel.app/_app/immutable/assets/final_fantasy_recolor_dark.CIlg1u1L.png" />
 	<meta property="og:url" content="https://vitrescent.vercel.app" />
 	<meta property="og:type" content="website" />
+
+	<!-- Twitter thing test -->
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:title" content="vitrescent's site" />
+	<meta name="twitter:description" content="unc snapped?!?!?!" />
+	<meta name="twitter:image" content="https://vitrescent.vercel.app/_app/immutable/assets/final_fantasy_recolor_dark.CIlg1u1L.png" />
 </svelte:head>
 
 <div class="m-auto max-w-[900px]">
