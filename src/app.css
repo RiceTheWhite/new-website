@@ -9,13 +9,13 @@
 
 body {
     font-family: "Jetbrains Mono";
-    background-color: var(--black);
     color: var(--primary);
     background-image: url("$lib/assets/final_fantasy_recolor_dark.png");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
+    font-size: 1em;
 }
 
 h1 {
@@ -28,8 +28,22 @@ h2 {
     font-size: 3em;
 }
 
+
+h4 {
+    color: var(--secondary);
+    font-size: 2em;
+}
+
 hr {
     background-color: var(--dark);
     border: none;
     height: 2px;
 }
+
+ul {
+    list-style-type: disc;
+    list-style-position: inside;
+    margin-left: 1em;
+}
+
+

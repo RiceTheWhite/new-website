@@ -35,5 +35,7 @@
 
 	{@render children?.()}
 
-	<p>footer</p>
+	<div class="mt-[10em]"></div>
+	<hr>
+	<p>woah... you reached the end...</p>
 </div>
