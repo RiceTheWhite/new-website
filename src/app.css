@@ -11,9 +11,11 @@ body {
     font-family: "Jetbrains Mono";
     background-color: var(--black);
     color: var(--primary);
-    font-size: 16px;
-    background-image: url("$lib/assets/acerola_recolor.png");
+    background-image: url("$lib/assets/final_fantasy_recolor_dark.png");
     background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
 h1 {
