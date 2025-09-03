@@ -1,4 +1,6 @@
 <script lang="ts">
+	import button from "$lib/assets/button.png"
+
 	import { onMount, tick } from "svelte";
     import { typewriter, select } from "$lib/components/transitions";
 
@@ -61,3 +63,7 @@
 	<li>discord - <a href="https://discord.com/users/401649298598658048">@v1trescent</a></li>
 	<li>github - <a href="https://github.com/RiceTheWhite/">@RiceTheWhite</a></li>
 </ul>
+
+<h4>friends</h4>
+<a href="https://vitrescent.vercel.app"><img src={button} alt=""></a>
+<p>nothing much here yet...</p>

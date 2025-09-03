@@ -36,7 +36,7 @@
 
 	{@render children?.()}
 
-	<div class="mt-[10em]"></div>
+	<div class="mt-[2em]"></div>
 
 	<hr>
 	<p>woah... you reached the end...</p>

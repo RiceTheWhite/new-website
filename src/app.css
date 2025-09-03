@@ -61,3 +61,8 @@ a {
 nav a {
     color: var(--primary);
 }
+
+.site-button {
+    size: 88px 31px;
+    src: url("$lib/assets/button.png");
+}
