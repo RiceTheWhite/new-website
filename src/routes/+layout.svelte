@@ -23,9 +23,10 @@
 	<nav class="flex justify-between">
 		<div class="flex flex-row space-x-4">
 			<a href="/">about</a>
+			<a href="/blog">blog</a>
 		</div>
 		<div class="flex flex-row space-x-4">
-			<a href="/blog">blog</a>
+			<a href="/tools">tools</a>
 			<a href="/contact">contact</a>
 			<a href="/credits">credits</a>
 		</div>
@@ -36,6 +37,8 @@
 	{@render children?.()}
 
 	<div class="mt-[10em]"></div>
+
 	<hr>
 	<p>woah... you reached the end...</p>
+	<p>copyright not really (c) 2025-till the sun explodes</p>
 </div>
