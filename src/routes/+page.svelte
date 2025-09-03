@@ -36,7 +36,7 @@
 
 <h4>about me</h4>
 <ul>
-	<li>i am a 15-year-old vietnamese. i go by he/him</li>
+	<li>i am a vietnamese born in 2009. i go by he/him</li>
 	<li>i see myself as a good-natured and calm person</li>
 	<li>...</li>
 </ul>
