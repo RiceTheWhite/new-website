@@ -19,26 +19,28 @@
 	<meta name="twitter:card" content="summary_large_image" />
 </svelte:head>
 
-<div class="m-auto max-w-[900px]">
-	<nav class="flex justify-between">
-		<div class="flex flex-row space-x-4">
-			<a href="/">about</a>
-			<a href="/blog">blog</a>
-		</div>
-		<div class="flex flex-row space-x-4">
-			<a href="/tools">tools</a>
-			<a href="/contact">contact</a>
-			<a href="/credits">credits</a>
-		</div>
-	</nav>
+<div class="m-auto max-w-[900px] min-h-[100vh] flex flex-col justify-start">
+	<div class="header">
+		<nav class="flex justify-between">
+			<div class="flex flex-row space-x-4">auto
+				<a href="/">about</a>
+				<a href="/blog">blog</a>
+			</div>
+			<div class="flex flex-row space-x-4">
+				<a href="/tools">tools</a>
+				<a href="/contact">contact</a>
+				<a href="/credits">credits</a>
+			</div>
+		</nav>
+		<hr>
+	</div>
 
-	<hr>
 
 	{@render children?.()}
 
-	<div class="mt-[2em]"></div>
-
-	<hr>
-	<p>woah... you reached the end...</p>
-	<p>copyright not really (c) 2025-till the sun explodes</p>
+	<div class="footer mt-auto">
+		<hr>
+		<p>woah... you reached the end...</p>
+		<p>copyright not really (c) 2025-till the sun explodes</p>
+	</div>
 </div>
