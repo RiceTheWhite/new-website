@@ -22,7 +22,7 @@
 <div class="m-auto max-w-[900px] min-h-[100vh] flex flex-col justify-start">
 	<div class="header">
 		<nav class="flex justify-between">
-			<div class="flex flex-row space-x-4">auto
+			<div class="flex flex-row space-x-4">
 				<a href="/">about</a>
 				<a href="/blog">blog</a>
 			</div>
