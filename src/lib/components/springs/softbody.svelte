@@ -35,7 +35,7 @@
         });
         
 
-        springs.push(new Spring([p1, p2]), new Spring([p2, p3]), new Spring([p3, p4]), new Spring([p4, p1]), new Spring([p1, p3], Math.SQRT2*200), new Spring([p2, p4], Math.SQRT2*200))
+        springs.push(new Spring([p1, p2]), new Spring([p2, p3]), new Spring([p3, p4]), new Spring([p4, p1]), new Spring([p1, p3], Math.SQRT2*150), new Spring([p2, p4], Math.SQRT2*150))
 
         ctx = canvas.getContext('2d')!
         width = canvas.width
@@ -77,12 +77,14 @@
                 });
             }
             heldPoints.forEach(p => {
-                p.applyForce(mouse.position.subtracted(p.position).multiplied(0.1))
+                const delta = mouse.position.subtracted(p.position)
+                p.applyForce(delta)
             });
         } else {
             heldPoints = []
         }
 
+        mouse.onEndOfFrame()
         requestAnimationFrame(loop)
     }
 </script>

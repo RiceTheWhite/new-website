@@ -1,4 +1,4 @@
-export class ColorLib {
+export class Color {
     constructor(
         public r: number, 
         public g: number, 
@@ -10,4 +10,13 @@ export class ColorLib {
     }
 
     get rgb() { return `rgb(${this.r}, ${this.g}, ${this.b})` }
+
+
+    lerp(color: Color, t: number) {
+        const r = this.r + (color.r - this.r) * t
+        const g = this.g + (color.g - this.g) * t
+        const b = this.b + (color.b - this.b) * t
+
+        return new Color(r, g, b)
+    }
 }

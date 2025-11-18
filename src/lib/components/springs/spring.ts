@@ -1,11 +1,12 @@
 import { Vec2D } from "./vec2d";
 import { Point } from "./point";
+import { Color } from "../vitrescent/colorlib";
 
 export class Spring {
     constructor(
         public pair: [Point, Point],
-        public restLength: number = 100,
-        public stiffness: number = 0.8,
+        public restLength: number = 150,
+        public stiffness: number = 1,
         public damping: number = 0.2,
         public solid: boolean = false,
     ) {}
@@ -30,11 +31,28 @@ export class Spring {
         p2.applyForce(force.mulSelf(-1))
     }
 
-    render(ctx: CanvasRenderingContext2D, size = 20, color = "red", skippedTeeth = 1) {
+    get length() {
+        const [p1, p2] = this.pair
+        const delta = p2.position.subtracted(p1.position)
+        const dist = delta.length
+        return dist
+    }
+
+    render(ctx: CanvasRenderingContext2D, size = 20, color = "stress", skippedTeeth = 1) {
         const [p1, p2] = this.pair;
         const teeth = Math.floor(this.restLength / size);
 
-        ctx.strokeStyle = color;
+        let c: string = color
+
+        if (color === "stress") {
+            let t = Math.abs(this.length-this.restLength)/this.restLength
+            t = Math.pow(t, 0.25)
+            c = new Color(0, 255, 0).lerp(new Color(255, 0, 0), (
+                t
+            )).rgb
+        }
+
+        ctx.strokeStyle = c;
         ctx.beginPath();
         ctx.moveTo(p1.position.x, p1.position.y);
 
