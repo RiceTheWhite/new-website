@@ -9,7 +9,8 @@ export class Point {
     constructor(
         x: number, 
         y: number, 
-        mass: number = 10
+        mass: number = 10,
+        public radius: number = 10
     ) {
         this.position = new Vec2D(x, y)
         this.velocity = new Vec2D(0, 0)
@@ -53,10 +54,10 @@ export class Point {
         }
     }
 
-    render(ctx: CanvasRenderingContext2D, radius: number = 10, color: string = "red") {
+    render(ctx: CanvasRenderingContext2D, color: string = "red") {
         ctx.fillStyle = color
         ctx.beginPath()
-        ctx.arc(this.position.x, this.position.y, radius, 0, 2*Math.PI)
+        ctx.arc(this.position.x, this.position.y, this.radius, 0, 2*Math.PI)
         ctx.fill()
     }
 }
