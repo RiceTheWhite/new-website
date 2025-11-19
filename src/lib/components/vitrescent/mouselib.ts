@@ -2,8 +2,11 @@ import { Vec2D } from "./softbody/vec2d"
 
 export class Mouse {
     position = new Vec2D(0, 0)
-    isDown = false
-    changedState = false
+    leftDown = false
+    leftChanged = false
+
+    rightDown = false
+    rightChanged = false
 
     constructor(
         public canvas: HTMLCanvasElement
@@ -15,7 +18,12 @@ export class Mouse {
         this.canvas.addEventListener("pointerdown", this.onPointerDown)
         this.canvas.addEventListener("pointermove", this.onPointerMove)
         this.canvas.addEventListener("pointerup", this.onPointerUp)
-        this.canvas.addEventListener("pointercancel", this.onPointerUp)
+        this.canvas.addEventListener("contextmenu", this.onContextMenu)
+
+    }
+
+    onContextMenu(e: PointerEvent) {
+        e.preventDefault()
     }
 
     getRelativePos(event: PointerEvent) {
@@ -30,11 +38,17 @@ export class Mouse {
     }
 
     onPointerDown(e: PointerEvent) {
-        this.changedState = true
-        this.isDown = true
-        const pos = this.getRelativePos(e)
-        this.position.x = pos.x
-        this.position.y = pos.y
+        if (e.button === 0) {
+            this.leftChanged = true
+            this.leftDown = true
+        } else if (e.button === 2) {
+            this.rightChanged = true
+            this.rightDown = true
+        }
+
+        // const pos = this.getRelativePos(e)
+        // this.position.x = pos.x
+        // this.position.y = pos.y
     }
 
     onPointerMove(e: PointerEvent) {
@@ -43,12 +57,18 @@ export class Mouse {
         this.position.y = pos.y
     }
 
-    onPointerUp() {
-        this.changedState = true
-        this.isDown = false
+    onPointerUp(e: PointerEvent) {
+        if (e.button === 0) {
+            this.leftChanged = true
+            this.leftDown = false
+        } else if (e.button === 2) {
+            this.rightChanged = true
+            this.rightDown = false
+        }
+
     }
 
     onEndOfFrame() {
-        this.changedState = false
+        this.leftChanged = false
     }
 }

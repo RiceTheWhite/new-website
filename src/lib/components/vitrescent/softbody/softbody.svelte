@@ -72,8 +72,8 @@
             spring.render(ctx)
         });
         
-        if (mouse.isDown) {
-            if (mouse.changedState) {
+        if (mouse.leftDown) {
+            if (mouse.leftChanged) {
                 s1.vertices.forEach(p => {
                     if (p.position.subtracted(mouse.position).length > p.radius + 20) { return }
                     heldPoints.push(p)
