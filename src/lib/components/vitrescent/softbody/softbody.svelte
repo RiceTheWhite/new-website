@@ -1,8 +1,8 @@
 <script lang="ts">
     import { onMount } from 'svelte'
-	import { Point } from './point';
+	import { PointMass } from './point-mass';
 	import { Spring } from './spring';    
-	import { Mouse } from '../vitrescent/mouselib';
+	import { Mouse } from '../mouselib';
 	import { Vec2D } from './vec2d';
 
     const gravity: [number, number] = [0, 0.2]
@@ -13,19 +13,19 @@
     let width: number
     let height: number
     
-    let points: Point[] = []
+    let points: PointMass[] = []
     let springs: Spring[] = []
 
     let mouse: Mouse
-    let heldPoints: Point[] = []
+    let heldPoints: PointMass[] = []
 
     onMount(() => {
         mouse = new Mouse(canvas)
 
-        const p1 = new Point(30, 30)
-        const p2 = new Point(300, 30)
-        const p3 = new Point(300, 300)
-        const p4 = new Point(30, 300)
+        const p1 = new PointMass(30, 30)
+        const p2 = new PointMass(300, 30)
+        const p3 = new PointMass(300, 300)
+        const p4 = new PointMass(30, 300)
 
 
         points.push(p1, p2, p3, p4)

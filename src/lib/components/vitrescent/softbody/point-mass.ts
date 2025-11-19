@@ -1,6 +1,7 @@
+import { Point } from "./point";
 import { Vec2D } from "./vec2d";
 
-export class Point {
+export class PointMass extends Point {
     position: Vec2D;
     velocity: Vec2D;
     acceleration: Vec2D;
@@ -12,6 +13,8 @@ export class Point {
         mass: number = 10,
         public radius: number = 10
     ) {
+        super(x, y, radius)
+
         this.position = new Vec2D(x, y)
         this.velocity = new Vec2D(0, 0)
         this.acceleration = new Vec2D(0, 0)
@@ -52,12 +55,5 @@ export class Point {
             this.position.y = maxY;
             this.velocity.y = 0;
         }
-    }
-
-    render(ctx: CanvasRenderingContext2D, color: string = "red") {
-        ctx.fillStyle = color
-        ctx.beginPath()
-        ctx.arc(this.position.x, this.position.y, this.radius, 0, 2*Math.PI)
-        ctx.fill()
     }
 }

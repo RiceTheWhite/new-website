@@ -1,4 +1,4 @@
-import { Vec2D } from "../springs/vec2d"
+import { Vec2D } from "./softbody/vec2d"
 
 export class Mouse {
     position = new Vec2D(0, 0)

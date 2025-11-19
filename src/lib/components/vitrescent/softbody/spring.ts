@@ -1,15 +1,18 @@
 import { Vec2D } from "./vec2d";
-import { Point } from "./point";
-import { Color } from "../vitrescent/colorlib";
+import { PointMass } from "./point-mass";
+import { Color } from "../colorlib";
+import { LineSegment } from "./line-segment";
 
-export class Spring {
+export class Spring extends LineSegment {
     constructor(
-        public pair: [Point, Point],
+        public pair: [PointMass, PointMass],
         public restLength: number = 150,
         public stiffness: number = 1,
         public damping: number = 0.2,
         public solid: boolean = false,
-    ) {}
+    ) {
+        super(pair);
+    }
 
     step() {
         const [p1, p2] = this.pair
@@ -31,13 +34,6 @@ export class Spring {
         p2.applyForce(force.mulSelf(-1))
     }
 
-    get length() {
-        const [p1, p2] = this.pair
-        const delta = p2.position.subtracted(p1.position)
-        const dist = delta.length
-        return dist
-    }
-
     render(ctx: CanvasRenderingContext2D, size = 20, color = "stress", skippedTeeth = 1) {
         const [p1, p2] = this.pair;
         const teeth = Math.floor(this.restLength / size);
@@ -46,7 +42,7 @@ export class Spring {
 
         if (color === "stress") {
             let t = Math.abs(this.length-this.restLength)/this.restLength
-            t = Math.pow(t, 0.25)
+            t = Math.pow(t, 0.4)
             c = new Color(0, 255, 0).lerp(new Color(255, 0, 0), (
                 t
             )).rgb
