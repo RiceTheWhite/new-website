@@ -1,9 +1,9 @@
 import { Edge } from "./edge";
 import type { Point } from "./point";
 
-export class Shape {
+export class Shape<T extends Point> {
     constructor(
-        public vertices: Point[]
+        public vertices: T[]
     ) {}
 
     get edges() {
@@ -15,5 +15,9 @@ export class Shape {
             edges.push(new Edge([p1, p2]))
         }
         return edges
+    }
+
+    containsPoint(p: Point) {
+        return p.isInsideShape(this)
     }
 }

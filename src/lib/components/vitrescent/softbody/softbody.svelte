@@ -4,6 +4,8 @@
 	import { Spring } from './spring';    
 	import { Mouse } from '../mouselib';
 	import { Vec2D } from './vec2d';
+	import { Shape } from './shape';
+	import { Point } from './point';
 
     const gravity: [number, number] = [0, 0.2]
 
@@ -13,24 +15,25 @@
     let width: number
     let height: number
     
-    let points: PointMass[] = []
+    let s1: Shape<PointMass>
     let springs: Spring[] = []
 
     let mouse: Mouse
     let heldPoints: PointMass[] = []
+    let mousePoint: Point
 
     onMount(() => {
         mouse = new Mouse(canvas)
+        mousePoint = new Point(0, 0)
 
         const p1 = new PointMass(30, 30)
         const p2 = new PointMass(300, 30)
         const p3 = new PointMass(300, 300)
         const p4 = new PointMass(30, 300)
 
+        s1 = new Shape([p1, p2, p3, p4])
 
-        points.push(p1, p2, p3, p4)
-
-        points.forEach(p => {
+        s1.vertices.forEach(p => {
             p.applyForce(new Vec2D(50, 0))
         });
         
@@ -46,6 +49,7 @@
 
     function loop() {
         // ctx.clearRect(0, 0, canvas.width, canvas.height)
+        mousePoint.position = mouse.position
 
         ctx.fillStyle = 'black'
         ctx.beginPath()
@@ -56,7 +60,7 @@
             spring.step()
         });
 
-        points.forEach(point => {
+        s1.vertices.forEach(point => {
             point.acceleration.addSelf(gravity)
 
             point.step()
@@ -67,11 +71,10 @@
         springs.forEach(spring => {
             spring.render(ctx)
         });
-
         
         if (mouse.isDown) {
             if (mouse.changedState) {
-                points.forEach(p => {
+                s1.vertices.forEach(p => {
                     if (p.position.subtracted(mouse.position).length > p.radius + 20) { return }
                     heldPoints.push(p)
                 });

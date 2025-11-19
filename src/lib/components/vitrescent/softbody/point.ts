@@ -21,7 +21,7 @@ export class Point {
     }
 
     // stolen again, from geeksforgeeks
-    isInsideShape(shape: Shape) {
+    isInsideShape(shape: Shape<Point>) {
         const num_vertices = shape.vertices.length;
         const x = this.x;
         const y = this.y;
@@ -49,6 +49,9 @@ export class Point {
         return inside;
     }
 
+    getSmallestVectorToShape(shape: Shape<Point>) {
+        
+    }
 
     render(ctx: CanvasRenderingContext2D, color: string = "white") {
         ctx.fillStyle = color
