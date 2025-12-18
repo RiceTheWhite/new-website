@@ -1,5 +1,5 @@
 import { Edge } from "./edge";
-import type { Point } from "./point";
+import { Point } from "./point";
 
 export class Shape<T extends Point> {
     constructor(
@@ -17,7 +17,19 @@ export class Shape<T extends Point> {
         return edges
     }
 
+    get points() { return this.vertices }
+
     containsPoint(p: Point) {
         return p.isInsideShape(this)
+    }
+
+    getCollidingVertices(shape: Shape<Point>) {
+        let collidingVertices: Point[] = []
+        this.vertices.forEach(vertex => {
+            if (vertex.isInsideShape(shape)) {
+                collidingVertices.push(vertex)
+            }
+        });
+        return collidingVertices
     }
 }

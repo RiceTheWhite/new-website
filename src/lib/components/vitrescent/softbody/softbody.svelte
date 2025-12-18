@@ -75,7 +75,7 @@
         if (mouse.leftDown) {
             if (mouse.leftChanged) {
                 s1.vertices.forEach(p => {
-                    if (p.position.subtracted(mouse.position).length > p.radius + 20) { return }
+                    if (p.position.subtracted(mouse.position).magnitude > p.radius + 20) { return }
                     heldPoints.push(p)
                 });
             }

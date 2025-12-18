@@ -18,7 +18,7 @@ export class Spring extends LineSegment {
         const [p1, p2] = this.pair
 
         const delta = p2.position.subtracted(p1.position)
-        const dist = delta.length
+        const dist = delta.magnitude
         const diff = dist - this.restLength
         const dir = delta.normalized
 

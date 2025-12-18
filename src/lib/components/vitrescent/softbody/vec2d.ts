@@ -4,11 +4,11 @@ export class Vec2D {
         public y: number = 0
     ) {}
 
-    get lengthSquared(): number { return this.x**2 + this.y**2 }
+    get magnitudeSquared(): number { return this.x**2 + this.y**2 }
 
-    get length(): number { return Math.sqrt(this.x**2 + this.y**2) }
+    get magnitude(): number { return Math.sqrt(this.x**2 + this.y**2) }
 
-    get normalized(): Vec2D { const length = this.length; return this.divided([length, length]) }
+    get normalized(): Vec2D { const length = this.magnitude; return this.divided([length, length]) }
 
     // Does not mutate the original vector
     private operate(

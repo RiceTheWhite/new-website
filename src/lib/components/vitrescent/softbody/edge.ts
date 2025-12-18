@@ -7,4 +7,6 @@ export class Edge extends LineSegment {
     ) {
         super(pair)
     }
+
+    
 }

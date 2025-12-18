@@ -15,7 +15,7 @@ export class LineSegment {
 
     get length() {
         const delta = this.delta
-        const dist = delta.length
+        const dist = delta.magnitude
         return dist
     }
 
@@ -23,14 +23,14 @@ export class LineSegment {
     // stolen straight from geeksforgeeks
     // stolen straight from geeksforgeeks
     // stolen straight from geeksforgeeks
-    _onSegment(p: [number, number], q: [number, number], r: [number, number]) {
+    private _onSegment(p: [number, number], q: [number, number], r: [number, number]) {
         return (q[0] <= Math.max(p[0], r[0]) && 
                 q[0] >= Math.min(p[0], r[0]) &&
                 q[1] <= Math.max(p[1], r[1]) &&
                 q[1] >= Math.min(p[1], r[1]));
     }
 
-    _orientation(p: [number, number], q: [number, number], r: [number, number]) {
+    private _orientation(p: [number, number], q: [number, number], r: [number, number]) {
         let val = (q[1] - p[1]) * (r[0] - q[0]) -
                 (q[0] - p[0]) * (r[1] - q[1]);
 

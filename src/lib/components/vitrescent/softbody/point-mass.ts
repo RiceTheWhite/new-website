@@ -1,4 +1,6 @@
+import type { Edge } from "./edge";
 import { Point } from "./point";
+import type { Shape } from "./shape";
 import { Vec2D } from "./vec2d";
 
 export class PointMass extends Point {
@@ -33,6 +35,8 @@ export class PointMass extends Point {
         this.acceleration.mulSelf(0)
     }
 
+    
+
     clampPosition(width: number, height: number) {
         const minX = 0
         const minY = 0
@@ -55,5 +59,13 @@ export class PointMass extends Point {
             this.position.y = maxY;
             this.velocity.y = 0;
         }
+    }
+
+    resolvePointCollision(
+        P: Point,
+        edge: Edge,
+        epsilon: number = 1e-6
+    ) {
+        
     }
 }
